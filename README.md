@@ -1,71 +1,132 @@
-# Getting Started with Create React App
+# Regarding Payment Gateway for Mobile App (PayU gateway integration)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+My react native Version and dependencies are below :- 
+
+"dependencies": {
+    "js-sha512": "^0.8.0",
+    "payu-non-seam-less-react": "^2.4.0",
+    "react": "17.0.2",
+    "react-native": "0.66.1"
+},
 
 
-## Available Scripts
+## i used :-
 
-In the project directory, you can run:
+1. js-sha512 (npm i js-sha512) (for :- hash functions for JavaScript supports)
+2. payu-non-seam-less-react (npm i payu-non-seam-less-react)
 
-### `npm start`
+## Add 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Android > buil.gradle 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    buildscript {
+        ext {
+            buildToolsVersion = "30.0.2"
+            minSdkVersion = 21
+            compileSdkVersion = 30
+            targetSdkVersion = 30
+            ndkVersion = "21.4.7075529"
+        }
+        repositories {
+            google()
+            mavenCentral()
+        }
+        dependencies {
+            classpath("com.android.tools.build:gradle:4.2.2")
+            // NOTE: Do not place your application dependencies here; they belong
+            // in the individual module build.gradle files
+        }
+    }
 
-### `npm test`
+    allprojects {
+        repositories {
+            mavenCentral()
+            mavenLocal()
+            maven {
+                // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+                url("$rootDir/../node_modules/react-native/android")
+            }
+            maven {
+                // Android JSC is installed from npm
+                url("$rootDir/../node_modules/jsc-android/dist")
+            }
+            maven {url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"} // ADD THIS LINE
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+            google()
+            maven { url 'https://www.jitpack.io' }
+        }
+    }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2. Android > App > src > main > AndroidManifest.xml 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"         //--------- ADD THIS LINE
+    package="com.payugateway">
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        <application
+        android:name=".MainApplication"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:allowBackup="true"                             //--------- ADD THIS LINE
+            android:usesCleartextTraffic="true"                 //--------- ADD THIS LINE
+            tools:replace="android:usesCleartextTraffic,android:theme" //--------- ADD THIS LINE
+        android:theme="@style/AppTheme"                               //--------- ADD THIS LINE
+        >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        </application>
+    </manifest>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Important Note: Always generate the hashes on your server. Do not generate the hashes locally in your app as it will compromise the security of the transactions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
 
-### Code Splitting
+Test Credentials: In case you are looking for test credentials, please see below credentials for testing purpose only :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Key - gtKFFx
+Salt - wia56q6O
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Please use the below test card details for doing a test transaction in the testing mode.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+CardName: Any name
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+CardNumber: 5123456789012346
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+CVV: 123
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Expiry: May 2025 (Any Future Date)
+
+
+OTP: 123456
+
+Do not use test card details in live environment.
+
+
+
+### FOR MORE INFO. PLEASE VISIT BELOW LINK :- 
+
+https://payumobile.gitbook.io/sdk-integration/react-native/integration/integration
