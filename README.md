@@ -20,7 +20,7 @@ My react native Version and dependencies are below :-
 1. Android > buil.gradle 
 
  add this :- maven {url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"}
- 
+
  like i add below.
 
         buildscript {
@@ -134,3 +134,8 @@ Do not use test card details in live environment.
 ### FOR MORE INFO. PLEASE VISIT BELOW LINK :- 
 
 https://payumobile.gitbook.io/sdk-integration/react-native/integration/integration
+
+
+#### Demo 
+
+https://user-images.githubusercontent.com/86530657/181176487-3633a76e-5a45-4710-bbbe-91c65488e086.mp4
