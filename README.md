@@ -19,53 +19,53 @@ My react native Version and dependencies are below :-
 
 1. Android > buil.gradle 
 
-    buildscript {
-        ext {
-            buildToolsVersion = "30.0.2"
-            minSdkVersion = 21
-            compileSdkVersion = 30
-            targetSdkVersion = 30
-            ndkVersion = "21.4.7075529"
-        }
-        repositories {
-            google()
-            mavenCentral()
-        }
-        dependencies {
-            classpath("com.android.tools.build:gradle:4.2.2")
-            // NOTE: Do not place your application dependencies here; they belong
-            // in the individual module build.gradle files
-        }
-    }
-
-    allprojects {
-        repositories {
-            mavenCentral()
-            mavenLocal()
-            maven {
-                // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-                url("$rootDir/../node_modules/react-native/android")
+        buildscript {
+            ext {
+                buildToolsVersion = "30.0.2"
+                minSdkVersion = 21
+                compileSdkVersion = 30
+                targetSdkVersion = 30
+                ndkVersion = "21.4.7075529"
             }
-            maven {
-                // Android JSC is installed from npm
-                url("$rootDir/../node_modules/jsc-android/dist")
+            repositories {
+                google()
+                mavenCentral()
             }
-            maven {url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"} // ADD THIS LINE
-
-
-            google()
-            maven { url 'https://www.jitpack.io' }
+            dependencies {
+                classpath("com.android.tools.build:gradle:4.2.2")
+                // NOTE: Do not place your application dependencies here; they belong
+                // in the individual module build.gradle files
+            }
         }
-    }
+
+        allprojects {
+            repositories {
+                mavenCentral()
+                mavenLocal()
+                maven {
+                    // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+                    url("$rootDir/../node_modules/react-native/android")
+                }
+                maven {
+                    // Android JSC is installed from npm
+                    url("$rootDir/../node_modules/jsc-android/dist")
+                }
+                maven {url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"} // ADD THIS LINE
+
+
+                google()
+                maven { url 'https://www.jitpack.io' }
+            }
+        }
 
 
 
 
 2. Android > App > src > main > AndroidManifest.xml 
 
-    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"         //--------- ADD THIS LINE
-    package="com.payugateway">
+        <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"         //--------- ADD THIS LINE
+        package="com.payugateway">
 
         <uses-permission android:name="android.permission.INTERNET" />
         <uses-permission android:name="android.permission.RECEIVE_SMS" />
@@ -102,8 +102,8 @@ Important Note: Always generate the hashes on your server. Do not generate the h
 
 Test Credentials: In case you are looking for test credentials, please see below credentials for testing purpose only :
 
-Key - gtKFFx
-Salt - wia56q6O
+    Key - gtKFFx
+    Salt - wia56q6O
 
 
 Please use the below test card details for doing a test transaction in the testing mode.
