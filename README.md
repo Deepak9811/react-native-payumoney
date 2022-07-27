@@ -2,7 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<video src='your URL here' width=180/>
 
 ## Available Scripts
 
