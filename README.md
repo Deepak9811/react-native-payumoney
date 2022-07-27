@@ -2,12 +2,12 @@
 
 My react native Version and dependencies are below :- 
 
-"dependencies": {
-    "js-sha512": "^0.8.0",
-    "payu-non-seam-less-react": "^2.4.0",
-    "react": "17.0.2",
-    "react-native": "0.66.1"
-},
+    "dependencies": {
+        "js-sha512": "^0.8.0",
+        "payu-non-seam-less-react": "^2.4.0",
+        "react": "17.0.2",
+        "react-native": "0.66.1"
+    },
 
 
 ## i used :-
