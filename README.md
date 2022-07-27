@@ -19,6 +19,9 @@ My react native Version and dependencies are below :-
 
 1. Android > buil.gradle 
 
+ add this :- maven {url "https://phonepe.mycloudrepo.io/public/repositories/phonepe-intentsdk-android"}
+ like i add below.
+
         buildscript {
             ext {
                 buildToolsVersion = "30.0.2"
