@@ -5519,10 +5519,10 @@
   "resolved" "https://registry.npmjs.org/path-parse/-/path-parse-1.0.7.tgz"
   "version" "1.0.7"
 
-"payu-non-seam-less-react@^2.4.0":
-  "integrity" "sha512-gQxEJx0r0O0/UdjwPMIvsRfreu3TSQDuA6oQSw2jbkgCfe1R3EUpZllm1hM+u4CeO7n7uHH19sybTjbPOsorgQ=="
-  "resolved" "https://registry.npmjs.org/payu-non-seam-less-react/-/payu-non-seam-less-react-2.4.0.tgz"
-  "version" "2.4.0"
+"payu-non-seam-less-react@^2.5.0":
+  "integrity" "sha512-3OU1YCVj9MVul0RF4cRdfdqa5hzaCjX/N6hZmB7dtzVQnXARbDx5gFHlvQUKu3lQ9M2feHvs8dIcOo2vLzEVRQ=="
+  "resolved" "https://registry.npmjs.org/payu-non-seam-less-react/-/payu-non-seam-less-react-2.5.0.tgz"
+  "version" "2.5.0"
 
 "picocolors@^1.0.0":
   "integrity" "sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ=="
